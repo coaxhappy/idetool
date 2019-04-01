@@ -1,0 +1,179 @@
+﻿<telerik:RadWindow
+    x:Class="Hami.WPF.IDETool.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:navigation="clr-namespace:Telerik.Windows.Controls.Navigation;assembly=Telerik.Windows.Controls.Navigation"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    Width="525"
+    Height="350"
+    navigation:RadWindowInteropHelper.Icon="/Assets/Images/logo.png"
+    navigation:RadWindowInteropHelper.ShowInTaskbar="True"
+    navigation:RadWindowInteropHelper.Title="dddd"
+    DataContext="{Binding Main, Source={StaticResource Locator}}"
+    Header="Visual Studio Tool"
+    HideMaximizeButton="True"
+    ResizeMode="CanMinimize"
+    Style="{DynamicResource RadWindowStyle}"
+    WindowStartupLocation="CenterScreen">
+    <telerik:RadWindow.Icon>
+        <Image
+            Width="18"
+            Height="18"
+            Source="/Assets/Images/logo.png"
+            Stretch="UniformToFill" />
+    </telerik:RadWindow.Icon>
+    <telerik:RadWindow.Resources>
+        <ResourceDictionary>
+            <GridLength x:Key="leftColumnWidth">.3*</GridLength>
+            <GridLength x:Key="rightColumnWidth">.9*</GridLength>
+        </ResourceDictionary>
+    </telerik:RadWindow.Resources>
+    <Grid Margin="6">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource leftColumnWidth}" />
+                    <ColumnDefinition Width="{StaticResource rightColumnWidth}" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Visual Studio 2015" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <CheckBox Content="Recent Projects(not pinned)" IsChecked="{Binding ClearVS2015RecentProjectsNotPinned, Mode=TwoWay}" />
+                    <CheckBox
+                        Margin="6,0,0,0"
+                        Content="Recent Projects(pinned)"
+                        IsChecked="{Binding ClearVS2015RecentProjectsPinned, Mode=TwoWay}" />
+                </StackPanel>
+                <CheckBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Recent Files"
+                    IsChecked="{Binding ClearVS2015RecentFiles, Mode=TwoWay}" />
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <CheckBox Content="Jump List(not pinned)" IsChecked="{Binding ClearVS2015JumpListNotPinned, Mode=TwoWay}" />
+                    <CheckBox
+                        Margin="6,0,0,0"
+                        Content="Jump List(pinned)"
+                        IsChecked="{Binding ClearVS2015JumListPinned, Mode=TwoWay}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource leftColumnWidth}" />
+                    <ColumnDefinition Width="{StaticResource rightColumnWidth}" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Visual Studio 2017" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <CheckBox Content="Recent Projects(not pinned)" IsChecked="{Binding ClearVS2017RecentProjectsNotPinned, Mode=TwoWay}" />
+                    <CheckBox
+                        Margin="6,0,0,0"
+                        Content="Recent Projects(pinned)"
+                        IsChecked="{Binding ClearVS2017RecentProjectsPinned, Mode=TwoWay}" />
+                </StackPanel>
+                <CheckBox
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="Recent Files"
+                    IsChecked="{Binding ClearVS2017RecentFiles, Mode=TwoWay}"
+                    IsEnabled="False" />
+                <StackPanel
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Horizontal">
+                    <CheckBox Content="Jump List(not pinned)" IsChecked="{Binding ClearVS2017JumpListNotPinned, Mode=TwoWay}" />
+                    <CheckBox
+                        Margin="6,0,0,0"
+                        Content="Jump List(pinned)"
+                        IsChecked="{Binding ClearVS2017JumpListPinned, Mode=TwoWay}" />
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{StaticResource leftColumnWidth}" />
+                    <ColumnDefinition Width="{StaticResource rightColumnWidth}" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <telerik:RadButton
+                        Command="{Binding CheckAllCommand}"
+                        Content="Check all"
+                        FontWeight="Bold" />
+                    <telerik:RadButton
+                        Margin="6,0,0,0"
+                        Command="{Binding UncheckAllCommand}"
+                        Content="Uncheck all"
+                        FontWeight="Bold" />
+                </StackPanel>
+            </Grid>
+            <StackPanel
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <telerik:RadButton Command="{Binding ClearCommand}" Content="Clear" />
+                <telerik:RadButton
+                    Margin="6,0,0,0"
+                    Command="{Binding CloseCommand}"
+                    Content="Close" />
+            </StackPanel>
+        </Grid>
+        <!--<Grid Margin="6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <telerik:RadButton
+                VerticalAlignment="Center"
+                Command="{Binding ClearVS2015RecentProjectsCommand}"
+                Content="清空VS2015最近打开Projects" />
+            <telerik:RadButton
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Command="{Binding ClearVS2015TaskbarJumplistCommand}"
+                Content="清空VS2015任务栏最近打开"
+                Visibility="Collapsed" />
+            <telerik:RadButton
+                Grid.Row="2"
+                Margin="0,12,0,0"
+                Command="{Binding ClearVS2017RecentProjectsCommand}"
+                Content="清空VS2017最近打开Projects" />
+            <telerik:RadButton
+                Grid.Row="3"
+                Margin="0,12,0,0"
+                Command="{Binding ClearVS2017TaskbarJumplistCommand}"
+                Content="清空VS任务栏最近打开（固定的也会清理）"
+                Visibility="Visible" />
+        </Grid>-->
+        <!--<TextBlock
+            Grid.Row="1"
+            Margin="3,0,3,3"
+            Foreground="{Binding MsgType, Converter={StaticResource MessageTypeToColorBrushConverter}}"
+            Text="{Binding Message}" />-->
+    </Grid>
+</telerik:RadWindow>

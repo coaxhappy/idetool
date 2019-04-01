@@ -1,0 +1,7 @@
+
+*.suo
+*.svn
+.vs
+bin
+obj
+packages

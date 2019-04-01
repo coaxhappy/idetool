@@ -1,7 +1,7 @@
 # idetool
 ide tool can clear MRU list of visual studio.
 
-For visual studio 2015 enterprise version 14.0 update3
+For visual studio 2015 enterprise version 14.0 update3\r\n
 1.clear recent project list
 2.clear recent file list
 3.clear recent jumplist

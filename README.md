@@ -16,4 +16,4 @@ For vs2017, I did not find how to clean recent file list, feel free to create a 
   
 btw, it was tested on vs 2015 enterprise version 14.0 update3 and vs 2017 enterprise versoin 15.9.10 only.  
 
-The project used Telerik WPF Control, you'd better modify Hami.Common.IDE prject only if you don't have telerik license. 
+The project uses Telerik WPF Control, you'd better modify Hami.Common.IDE project only if you don't have telerik license. 
